@@ -6,4 +6,4 @@ fi
 
 git add .
 git commit -m "This commit is a certified banger"
-git push -u origin master
+git push origin main
