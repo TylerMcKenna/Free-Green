@@ -1,9 +1,10 @@
-if [ -e "./fakeWork.txt" ]; then
-    rm ./fakeWork.txt
-else 
-    touch ./fakeWork.txt
-fi 
+#!/bin/bash
 
-git add .
-git commit -m "This commit is a certified banger"
-git push origin main
+if [ -e "/home/jimmybob/Desktop/Free-Green/fakeWork.txt" ]; then
+    rm /home/jimmybob/Desktop/Free-Green/fakeWork.txt
+else 
+    touch /home/jimmybob/Desktop/Free-Green/fakeWork.txt
+fi 
+(cd /home/jimmybob/Desktop/Free-Green; git add .)
+(cd /home/jimmybob/Desktop/Free-Green; git commit -m "This commit is a certified banger")
+(cd /home/jimmybob/Desktop/Free-Green; git push origin main)
