@@ -5,10 +5,13 @@
 lastFileModificationDate=`stat --format="%y" /home/jimmybob/Desktop/Free-Green/fakeWork.txt`
 currentDate=`date +"%F"`
 
-echo ${lastFileModificationDate:0:10}
-echo $currentDate
+# echo ${lastFileModificationDate:0:10}
+# echo $currentDate
+# if [[ ${lastFileModification:0:10}==$currentDate ]]; then
+#     echo "test"
+# fi
 
-if [[ ${lastFileModification:0:10} != $currentDate ]]; then 
+if [[ ${lastFileModification:0:10}!=$currentDate ]]; then 
     if [ -e "/home/jimmybob/Desktop/Free-Green/fakeWork.txt" ]; then
         echo "Work" > /home/jimmybob/Desktop/Free-Green/fakeWork.txt
     else 
