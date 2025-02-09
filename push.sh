@@ -4,8 +4,6 @@ else
     touch ./fakeWork.txt
 fi 
 
-echo "Enter your commit message"
-read message
 git add .
-git commit -m"${message}"
+git commit -m "This commit is a certified banger"
 git push -u origin master
