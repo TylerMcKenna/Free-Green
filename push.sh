@@ -1,28 +1,25 @@
 #!/bin/bash
 
-# directoryPath="test"
+directoryPath="/home/jimmybob/Desktop/Free-Green"
 
-lastFileModificationDate=`stat --format="%y" /home/jimmybob/Desktop/Free-Green/fakeWork.txt`
+lastFileModificationDate=`stat --format="%y" ${directoryPath}/fakeWork.txt`
 currentDate=`date +"%F"`
 
-echo ${lastFileModificationDate:0:10}
-echo $currentDate
-if [ "${lastFileModificationDate:0:10}" == "${currentDate}" ]
-then
-    echo "test"
-else 
-    echo "failed test"
-fi
+echo "${directoryPath}/fakeWork.txt"
+echo "Work" >> ${directoryPath}/fakeWork.txt
 
-if [[ ${lastFileModificationDate:0:10}!=$currentDate ]]; then 
-    if [ -e "/home/jimmybob/Desktop/Free-Green/fakeWork.txt" ]; then
-        echo "Work" > /home/jimmybob/Desktop/Free-Green/fakeWork.txt
+if [ "${lastFileModificationDate:0:10}" != "${currentDate}" ] 
+then 
+    if [ -e "${directoryPath}/fakeWork.txt" ]
+    then
+        echo "Work" > ${directoryPath}/fakeWork.txt
     else 
-        touch /home/jimmybob/Desktop/Free-Green/fakeWork.txt
+        touch ${directoryPath}/fakeWork.txt
     fi 
-    (cd /home/jimmybob/Desktop/Free-Green; git add .)
-    (cd /home/jimmybob/Desktop/Free-Green; git commit -m "This commit is a certified test")
-    (cd /home/jimmybob/Desktop/Free-Green; git push origin main)
+
+    (cd ${directoryPath}; git add .)
+    (cd ${directoryPath}; git commit -m "This commit is a certified test")
+    (cd ${directoryPath}; git push origin main)
 else
     echo "No need to fake commit twice in a day."
 fi
